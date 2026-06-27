@@ -22,10 +22,10 @@ XX-pattern-name/
 
 ## Guidelines
 
-- Java 17+ use karo
-- Spring Boot 3.x use karo
-- Har pattern ka Docker setup hona chahiye
-- README mein diagram zaroor hona chahiye
+-Use Java 17+
+-Use Spring Boot 3.x
+-Provide a Docker setup for every architectural pattern
+-Include architecture diagrams directly within the README
 
 ## Good First Issues
 
