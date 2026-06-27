@@ -1,7 +1,6 @@
 # 🚀 Spring Boot Production Patterns
 
 > Real-world Spring Boot patterns with working code & Docker setup.
-> Inspired by [java-design-patterns](https://github.com/iluwatar/java-design-patterns) — but for production problems.
 
 ![Java](https://img.shields.io/badge/Java-17+-orange?style=flat-square&logo=openjdk)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.x-brightgreen?style=flat-square&logo=springboot)
