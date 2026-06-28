@@ -53,7 +53,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Build Idempotency
-        run: mvn clean install -f 04-idempotency/idempotency/pom.xml
+        run: mvn clean install -f 04-idempotency/pom.xml
 
   build-caching:
     runs-on: ubuntu-latest
@@ -65,7 +65,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Build Caching
-        run: mvn clean install -f 05-caching/caching/pom.xml
+        run: mvn clean install -f 05-caching/pom.xml
 
   build-bulkhead:
     runs-on: ubuntu-latest
@@ -77,4 +77,4 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Build Bulkhead
-        run: mvn clean install -f 06-bulkhead/bulkhead/pom.xml
+        run: mvn clean install -f 06-bulkhead/pom.xml
