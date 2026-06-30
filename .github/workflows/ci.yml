@@ -79,7 +79,7 @@ jobs:
       - name: Build Bulkhead
         run: mvn clean install -f 06-bulkhead/pom.xml
 
-build-health-check:
+  build-health-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
