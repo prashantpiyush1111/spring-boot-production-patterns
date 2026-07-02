@@ -5,7 +5,7 @@
 
 ![Java](https://img.shields.io/badge/Java-17+-orange?style=flat-square&logo=openjdk)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.x-brightgreen?style=flat-square&logo=springboot)
-![Patterns](https://img.shields.io/badge/Patterns-8-blue?style=flat-square)
+![Patterns](https://img.shields.io/badge/Patterns-9-blue?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
 ![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen?style=flat-square)
 [![CI - Build All Patterns](https://github.com/prashantpiyush1111/spring-boot-production-patterns/actions/workflows/ci.yml/badge.svg)](https://github.com/prashantpiyush1111/spring-boot-production-patterns/actions/workflows/ci.yml)
@@ -36,6 +36,7 @@ Every pattern includes:
 | 06 | [Bulkhead](./06-bulkhead) | Isolate failures using separate thread pools per service | ✅ Done |
 | 07 | [Health Check](./07-health-check) | Monitor service health via actuator endpoints | ✅ Done |
 | 08 | [Throttling](./08-throttling) | Control concurrent requests per user with Semaphore | ✅ Done |
+| 09 | [Graceful Shutdown](./09-graceful-shutdown) | Complete in-flight requests before shutting down | ✅ Done |
 
 ---
 
