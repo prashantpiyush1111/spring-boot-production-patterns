@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class ExternalService {
 
-    private int attemptCount = 0;
-
     @Retryable(
         value = RuntimeException.class,
         maxAttempts = 3,
         backoff = @Backoff(delay = 1000)
     )
     public String callUnstableService() {
+        int attemptCount = 0;
+
         attemptCount++;
         System.out.println("Attempt #" + attemptCount);
 
@@ -22,12 +22,10 @@ public class ExternalService {
             throw new RuntimeException("Service temporarily unavailable!");
         }
 
-        attemptCount = 0;
         return "Service call successful!";
     }
 
     public String fallback() {
-        attemptCount = 0;
         return "Service unavailable after multiple retries. Please try again later.";
     }
 }
