@@ -1,78 +1,103 @@
 # 🚀 Spring Boot Production Patterns
 
-> Real-world Spring Boot patterns with working code & Docker setup.
+> A practical collection of Spring Boot patterns for building more resilient, reliable, and production-oriented services.
 
-![Java](https://img.shields.io/badge/Java-17+-orange?style=flat-square&logo=openjdk)
+![Java](https://img.shields.io/badge/Java-17%2B-orange?style=flat-square&logo=openjdk)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.x-brightgreen?style=flat-square&logo=springboot)
 ![Patterns](https://img.shields.io/badge/Patterns-10-blue?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
-![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen?style=flat-square)
-[![CI - Build All Patterns](https://github.com/prashantpiyush1111/spring-boot-production-patterns/actions/workflows/ci.yml/badge.svg)](https://github.com/prashantpiyush1111/spring-boot-production-patterns/actions/workflows/ci.yml)
 
----
+## 🎯 Why This Repository?
 
-## 🎯 What is this?
+Many tutorials focus on getting a Spring Boot application running. This repository focuses on the problems that appear when a service must handle failures, retries, load, duplicate requests, caching, shutdowns, and asynchronous processing.
 
-Most tutorials show you how to build a Spring Boot app.
-**This repo shows you what to do when it breaks in production.**
-
-Every pattern includes:
-- ✅ Working Spring Boot code
-- ✅ Docker Compose setup
-- ✅ When to use & when NOT to use
-
----
+Each pattern is implemented as a focused example with an emphasis on **when to use it, what problem it solves, and what trade-offs it introduces**.
 
 ## 📦 Patterns
 
-| # | Pattern | Description | Status |
-|---|---------|-------------|--------|
-| 01 | [Circuit Breaker](./01-circuit-breaker) | Stop cascading failures when a service goes down | ✅ Done |
-| 02 | [Rate Limiting](./02-rate-limiting) | Control how many requests a client can make | ✅ Done |
-| 03 | [Retry Logic](./03-retry-logic) | Automatically retry failed operations with backoff | ✅ Done |
-| 04 | [Idempotency](./04-idempotency) | Prevent duplicate processing of the same request | ✅ Done |
-| 05 | [Caching](./05-caching) | Reduce DB load by serving repeated requests from cache | ✅ Done |
-| 06 | [Bulkhead](./06-bulkhead) | Isolate failures using separate thread pools per service | ✅ Done |
-| 07 | [Health Check](./07-health-check) | Monitor service health via actuator endpoints | ✅ Done |
-| 08 | [Throttling](./08-throttling) | Control concurrent requests per user with Semaphore | ✅ Done |
-| 09 | [Graceful Shutdown](./09-graceful-shutdown) | Complete in-flight requests before shutting down | ✅ Done |
-| 10 | [Dead Letter Queue](./10-dead-letter-queue) | Preserve failed messages for retry and investigation | ✅ Done |
+| # | Pattern | Problem Addressed |
+|---|---|---|
+| 01 | Circuit Breaker | Prevent cascading failures when a dependency is unavailable |
+| 02 | Rate Limiting | Control request volume from clients |
+| 03 | Retry Logic | Recover from transient failures with retry/backoff |
+| 04 | Idempotency | Prevent duplicate processing of the same request |
+| 05 | Caching | Reduce repeated database or service calls |
+| 06 | Bulkhead | Isolate failures and resource usage between operations |
+| 07 | Health Check | Expose service health for operational monitoring |
+| 08 | Throttling | Control concurrent work with a semaphore-based approach |
+| 09 | Graceful Shutdown | Allow in-flight work to complete during shutdown |
+| 10 | Dead Letter Queue | Preserve failed messages for retry and investigation |
 
+## 🧱 Pattern Structure
 
----
+Each example is kept focused so it can be studied independently.
+
+```text
+Pattern
+├── Example implementation
+├── Configuration
+├── Supporting classes
+└── Usage / notes
+```
+
+## 🛠️ Technology Stack
+
+- Java 17+
+- Spring Boot 3.5.x
+- Maven
+- Docker / Docker Compose
+- Spring Boot Actuator where applicable
 
 ## 🚀 Getting Started
 
-Each pattern is standalone. Just go to any folder and run:
+Each pattern is designed to be explored independently.
+
+### Run with Maven
+
+From the relevant project directory:
 
 ```bash
-cd <pattern-folder>/<project-folder>
 ./mvnw spring-boot:run
 ```
 
-Or with Docker:
+### Run with Docker
+
+From a pattern directory that provides Compose configuration:
 
 ```bash
-cd <pattern-folder>
 docker-compose up
 ```
 
----
+## 🧠 How to Study the Repository
+
+A useful learning order is:
+
+```text
+Failure Recovery
+   ↓
+Traffic Control
+   ↓
+Duplicate Request Protection
+   ↓
+Resource Isolation
+   ↓
+Operational Resilience
+   ↓
+Asynchronous Failure Handling
+```
+
+The key goal is understanding the **trade-off behind each pattern**, not using patterns everywhere by default.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read [CONTRIBUTING.md](./CONTRIBUTING.md) first.
-
----
+Contributions are welcome. Please read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a pull request.
 
 ## 👨‍💻 Author
 
-**Prashant Maurya**
-- GitHub: [@prashantpiyush1111](https://github.com/prashantpiyush1111)
-- LinkedIn: [prashantpiyush1111](https://linkedin.com/in/prashantpiyush1111)
-
----
+**Prashant Maurya**  
+GitHub: [@prashantpiyush1111](https://github.com/prashantpiyush1111)  
+LinkedIn: [Prashant Maurya](https://linkedin.com/in/prashantpiyush1111)
 
 ## 📄 License
 
-MIT License — free to use, modify, and distribute.
+MIT License
