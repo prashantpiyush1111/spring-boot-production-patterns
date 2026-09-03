@@ -1,22 +1,14 @@
-\# Circuit Breaker Pattern
+# Circuit Breaker Pattern
 
-
-
-\## Problem
+## Problem
 
 When a service fails repeatedly, it causes cascading failures across the entire system.
 
-
-
-\## Solution
+## Solution
 
 Circuit Breaker pattern detects service failures and automatically returns a fallback response instead of crashing.
 
-
-
-\## How it Works
-
-
+## How it Works
 
 CLOSED - failures are low - normal operation
 
@@ -24,51 +16,38 @@ OPEN - failures are high - fallback is returned
 
 HALF-OPEN - few requests allowed - checks if service recovered
 
+```mermaid
+stateDiagram-v2
+    [*] --> CLOSED
+    CLOSED --> OPEN: Failure threshold reached
+    OPEN --> HALF_OPEN: Recovery timeout
+    HALF_OPEN --> CLOSED: Request succeeds
+    HALF_OPEN --> OPEN: Request fails
+```
 
+## Tech Stack
 
-\## Tech Stack
+- Java 17
+- Spring Boot 3.5.14
+- Resilience4j
+- Spring Boot Actuator
 
-\- Java 17
-
-\- Spring Boot 3.5.14
-
-\- Resilience4j
-
-\- Spring Boot Actuator
-
-
-
-\## How to Run
-
-
+## How to Run
 
 cd circuit-breaker
 
 ./mvnw spring-boot:run
 
-
-
-\## Test API
-
-
+## Test API
 
 GET http://localhost:8080/api/payment/process/{orderId}
 
-
-
-\## Monitor Circuit Breaker
-
-
+## Monitor Circuit Breaker
 
 GET http://localhost:8080/actuator/health
 
+## When to Use
 
-
-\## When to Use
-
-\- External API calls
-
-\- Database connections
-
-\- Microservices communication
-
+- External API calls
+- Database connections
+- Microservices communication
