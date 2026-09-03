@@ -1,22 +1,14 @@
-\# Rate Limiting Pattern
+# Rate Limiting Pattern
 
-
-
-\## Problem
+## Problem
 
 Without limits, a single user or bot can flood your API with requests, overloading the server and degrading performance for everyone else.
 
-
-
-\## Solution
+## Solution
 
 Rate Limiting controls how many requests a client can make in a given time window. Excess requests are rejected with a 429 status instead of overwhelming the system.
 
-
-
-\## How it Works
-
-
+## How it Works
 
 Each client gets a "bucket" with a fixed number of tokens.
 
@@ -26,47 +18,37 @@ Bucket refills at a fixed rate (e.g. 5 tokens per minute).
 
 No tokens left = request rejected (429 Too Many Requests).
 
+```mermaid
+flowchart TD
+    A[Client Request] --> B[Token Bucket]
+    B --> C{Token Available?}
+    C -->|Yes| D[Consume Token]
+    D --> E[Process Request]
+    C -->|No| F[Reject with HTTP 429]
+    G[Refill Tokens at Fixed Rate] --> B
+```
 
+## Tech Stack
 
-\## Tech Stack
+- Java 17
+- Spring Boot 3.5.15
+- Bucket4j
+- Spring Boot Actuator
 
-\- Java 17
-
-\- Spring Boot 3.5.15
-
-\- Bucket4j
-
-\- Spring Boot Actuator
-
-
-
-\## How to Run
-
-
+## How to Run
 
 cd rate-limiting
 
 ./mvnw spring-boot:run
 
-
-
-\## Test API
-
-
+## Test API
 
 GET http://localhost:8080/api/data
 
-
-
 Refresh 6+ times quickly to see the rate limit trigger.
 
+## When to Use
 
-
-\## When to Use
-
-\- Public APIs
-
-\- Login/auth endpoints (prevent brute force)
-
-\- Protecting downstream services from traffic spikes
-
+- Public APIs
+- Login/auth endpoints (prevent brute force)
+- Protecting downstream services from traffic spikes
